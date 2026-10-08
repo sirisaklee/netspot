@@ -211,7 +211,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
     <section class="tidepage" id="tidepage" hidden aria-label="น้ำขึ้นน้ำลง">
       <div class="tcard today" id="tToday"></div>
       <div class="tcard">
-        <h2>ระดับน้ำ 10 วัน</h2>
+        <h2>ระดับน้ำ ปากน้ำแม่กลอง 10 วัน</h2>
         <div class="readout" id="tRead">แตะหรือลากบนกราฟเพื่อดูระดับน้ำแต่ละชั่วโมง</div>
         <div class="chartscroll" id="tScroll"></div>
       </div>
@@ -253,7 +253,10 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 
   const PORT = [12.80, 99.975]; // ท่าแพสี่พี่น้อง 2 ชะอำ (approx.)
   const KM_LAT = 111.32, KM_LON = 111.32 * Math.cos(12.7 * Math.PI / 180);
-  const NM3 = 3 * 1.852;
+  // เขตทะเลชายฝั่ง (พ.ร.ก.การประมง 2558): เรือประมงพาณิชย์ (>=10 GT; เรือเรา 40.94 / 48.67 GT) ห้ามทำประมง
+  // ค่าเริ่มต้นตามกฎหมาย 3 ไมล์ทะเล แต่กฎกระทรวงรายจังหวัดกำหนดเป็นเส้นตรงผ่านพิกัดได้ 1.5-12 ไมล์ -> ยังไม่มีพิกัดจริง
+  const COAST_NM = 3, SAFETY_NM = 0.5;      // แนะนำจุดเฉพาะที่ห่างฝั่งเกิน 3.5 ไมล์ (เผื่อเส้นฝั่งคลาด ~1 กม.)
+  const NM3 = COAST_NM * 1.852, NM_SAFE = (COAST_NM + SAFETY_NM) * 1.852;
 
   /* ---------- grid helpers ---------- */
   const dLat = g => (g.lat1 - g.lat0) / (g.nlat - 1), dLon = g => (g.lon1 - g.lon0) / (g.nlon - 1);
@@ -324,7 +327,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   for (let i = 0; i < G.nlat; i++) for (let j = 0; j < G.nlon; j++) {
     const k = i * G.nlon + j; if (G.v[k] == null) continue;
     const la = lat(G, i), lo = lon(G, j);
-    if (dist[k] < NM3 || kmBetween([la, lo], PORT) > 75) continue;
+    if (dist[k] < NM_SAFE || kmBetween([la, lo], PORT) > 75) continue;
     const dep = sample(D.depth, la, lo); if (dep == null || dep >= 0) continue;
     const c = sample(D.chl, la, lo), fd = depthScore(-dep), fc = chlScore(c), ff = Math.min(1, grad[k] / G95);
     raw[k] = fd * salScore(sample(D.sob, la, lo)) * o2Score(sample(D.o2b, la, lo)) * (0.65 * fc + 0.35 * ff);
@@ -348,6 +351,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
     s.rank = r + 1; s.score = score[s.k];
     s.fish = Math.max(1, Math.min(5, Math.ceil((s.score - 0.45) / 0.1)));
     s.lvl = LEVELS[s.fish];
+    s.coastNm = dist[s.k] / 1.852;
     s.km = kmBetween(PORT, s.p); s.dir = bearing(PORT, s.p); s.dep = dep; s.chl = c; s.sst = sample(G, la, lo);
     s.why = [`ลึก ~${dep} ม. อยู่ในช่วงที่วางอวนได้`,
       c == null ? "ไม่มีข้อมูลแพลงก์ตอน (เมฆ)" : c >= 0.9 && c <= 4 ? `แพลงก์ตอนกำลังดี (${c.toFixed(1)})` : c > 4 ? `แพลงก์ตอนหนามาก (${c.toFixed(1)})` : `แพลงก์ตอนค่อนข้างน้อย (${c.toFixed(1)})`];
@@ -546,7 +550,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   });
   $("cards").innerHTML = spots.map(s => `<button type="button" class="card" data-r="${s.rank}">${fishTile(s.fish)}
       <span><b>${s.rank}. ${s.dir} ${s.km.toFixed(0)} กม.</b><span class="lvl">${s.lvl}</span></span>
-      <span class="sub">ลึก ~${s.dep} ม. · เค็ม ${s.sal == null ? "–" : s.sal.toFixed(0)} · กระแส ≤${s.cmax.toFixed(1)} นอต</span></button>`).join("");
+      <span class="sub">ห่างฝั่ง ${s.coastNm.toFixed(1)} ไมล์ · ลึก ~${s.dep} ม. · เค็ม ${s.sal == null ? "–" : s.sal.toFixed(0)} · กระแส ≤${s.cmax.toFixed(1)} นอต</span></button>`).join("");
   $("cards").querySelectorAll(".card").forEach(b => b.addEventListener("click", () => openSpot(spots[b.dataset.r - 1], true)));
   function highlight(s) {
     selected = s;
@@ -576,7 +580,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
       <div style="display:flex;gap:12px;align-items:center;margin-top:4px"><div style="width:64px;flex:none">${fishTile(s.fish)}</div>
         <div><div>${s.dir}ของท่าชะอำ <b>${s.km.toFixed(0)} กม.</b> (${(s.km / 1.852).toFixed(0)} ไมล์ทะเล)</div>
         <div class="pos">${logbookStyle(s.p[0])} N / ${logbookStyle(s.p[1])} E</div></div></div>
-      <div class="kv"><span class="k">ความลึก</span><span class="v">~${s.dep} ม.</span>
+      <div class="kv"><span class="k">ห่างฝั่ง</span><span class="v">${s.coastNm.toFixed(1)} <small>ไมล์ทะเล</small></span>
+        <span class="k">ความลึก</span><span class="v">~${s.dep} ม.</span>
         <span class="k">ความเค็มพื้น</span><span class="v">${s.sal == null ? "–" : s.sal.toFixed(1)} <small>ppt</small></span>
         <span class="k">แพลงก์ตอน</span><span class="v">${s.chl == null ? "–" : s.chl.toFixed(2)}</span>
         <span class="k">กระแสแรงสุด 48 ชม.</span><span class="v">${s.cmax.toFixed(1)} <small>นอต</small></span>
@@ -612,8 +617,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
       <li><b>แพลงก์ตอนกำลังดี</b> ไม่น้อยเกิน ไม่หนาจนน่าห่วง</li>
       <li><b>ออกซิเจนที่พื้น</b> ถ้าต่ำจะลดคะแนน</li>
       <li><b>แนวน้ำอุ่นชนน้ำเย็น</b> น้ำหนักรองลงมา</li>
-      <li>ตัดเขต 3 ไมล์จากฝั่ง และไกลจากท่าเกิน 75 กม.</li></ul>
-    <p class="small"><b>ยังเป็นสูตรเดา</b> ยังไม่ได้เรียนจากผลจับจริง เส้น 3 ไมล์เป็นค่าประมาณ ใช้เส้นจากกรมประมงเป็นหลัก</p>
+      <li><b>ไม่แนะนำในเขตทะเลชายฝั่ง</b> เรือเราเป็นเรือประมงพาณิชย์ (40.94 และ 48.67 ตันกรอส) ห้ามทำประมงในเขตนี้ แอปตัดพื้นที่ใกล้ฝั่งกว่า <b>3.5 ไมล์ทะเล</b> (กฎหมาย 3 ไมล์ + เผื่อ 0.5 ไมล์) และไกลจากท่าเกิน 75 กม.</li></ul>
+    <p class="small"><b>ยังเป็นสูตรเดา</b> ยังไม่ได้เรียนจากผลจับจริง · <b>เส้น 3 ไมล์บนแผนที่เป็นค่าประมาณ</b> กฎกระทรวงกำหนดเขตทะเลชายฝั่งรายจังหวัดเป็นเส้นตรงผ่านพิกัด ซึ่งอาจไกลกว่า 3 ไมล์ ให้ยึดเส้นในแอป VMS และประกาศของกรมประมงเป็นหลักเสมอ</p>
     <h3>ข้อมูลล่าสุด</h3><ul class="small">
       <li>กระแสน้ำ ความเค็ม ออกซิเจน: Copernicus Marine ${thDate(D.sob.time)}</li>
       <li>อุณหภูมิน้ำ: NASA JPL MUR ${thDate(D.sst.time)}</li>
@@ -679,7 +684,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
       for (let i = 0; i < out.length - 1; i++) if (Math.abs(out[i].h - out[i + 1].h) < 0.15) { out.splice(i, 2); changed = true; break; } }
     return out;
   })();
-  const rangeLabel = r => r >= 1.8 ? ["น้ำเกิด", "spring"] : r <= 1.3 ? ["น้ำตาย", "neap"] : ["น้ำปานกลาง", ""];
+  const rangeLabel = r => r >= 2.2 ? ["น้ำเกิด", "spring"] : r <= 1.8 ? ["น้ำตาย", "neap"] : ["น้ำปานกลาง", ""];
   function daysInfo() {
     const by = new Map();
     T.lv.forEach((h, i) => { if (h == null) return; const k = dayKey(tAt(i)); if (!by.has(k)) by.set(k, []); by.get(k).push(h); });
@@ -732,17 +737,17 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
       <div><span class="pill ${rc}">${rl}</span> <span class="small">วันนี้ขึ้นลง ${today.range.toFixed(1)} ม.</span></div>
       <div class="next">${next ? `ต่อไป: <b>${next.hi ? "น้ำขึ้นสูงสุด" : "น้ำลงต่ำสุด"} ${hm(next.t)} น.</b> (${next.h.toFixed(2)} ม.) · อีก ${Math.floor(mins / 60)} ชม. ${mins % 60} นาที` : "ไม่มีข้อมูลล่วงหน้า"}</div>`;
     const ser = T.lv.map((v, i) => ({ t: tAt(i), v }));
-    lineChart($("tScroll"), $("tRead"), ser, { h: 190, grid: [0, 1], fmt: v => v + " ม.", label: "กราฟระดับน้ำรายชั่วโมง 10 วัน",
+    lineChart($("tScroll"), $("tRead"), ser, { h: 190, grid: [1, 2, 3], fmt: v => v + " ม.", label: "กราฟระดับน้ำรายชั่วโมง 10 วัน",
       marks: EXT.map(e => ({ t: e.t, v: e.h, hi: e.hi })),
       read: s => `${dayName(dayKey(s.t))} ${hm(s.t)} น. · ระดับ <b>${s.v.toFixed(2)} ม.</b> <small>${(() => { const i = ser.indexOf(s), n = ser[i + 1]; return n && n.v != null ? (n.v > s.v ? "น้ำกำลังขึ้น" : "น้ำกำลังลง") : ""; })()}</small>` });
-    const cs = C2.times.map((tt, h) => { const c = curAt(h, T.at[0], T.at[1]); return { t: new Date(tt).getTime(), v: c ? Math.hypot(...c) * KN : null, c }; });
+    const cs = C2.times.map((tt, h) => { const c = curAt(h, (D.zone[0][0] + D.zone[1][0]) / 2, (D.zone[0][1] + D.zone[1][1]) / 2); return { t: new Date(tt).getTime(), v: c ? Math.hypot(...c) * KN : null, c }; });
     lineChart($("cScroll"), $("cRead"), cs, { h: 150, min: 0, max: Math.max(2, ...cs.map(s => s.v || 0)), grid: [0.5, 1, 1.5], fmt: v => v + " นอต", label: "กราฟความแรงกระแสน้ำ 48 ชั่วโมง",
       read: s => `${dayName(dayKey(s.t))} ${hm(s.t)} น. · <b>${s.v.toFixed(1)} นอต</b> <small>ไหลไป${flowDir(s.c)}</small>` });
     $("tDays").innerHTML = days.map(d => { const [l, c] = rangeLabel(d.range);
       return `<div class="day ${d.k === dayKey(now) ? "today-row" : ""}">${moonSVG(d.age)}
         <div class="dh"><b>${dayName(d.k)}</b><span>${lunar(d.noon)}</span><span class="pill ${c}">${l} ${d.range.toFixed(1)} ม.</span></div>
         <div class="ev">${d.ev.map(e => `<span class="${e.hi ? "hi" : "lo"}">${e.hi ? "▲" : "▼"} ${hm(e.t)} <small>${e.h.toFixed(2)}</small></span>`).join("")}</div></div>`; }).join("");
-    $("tNote").innerHTML = `ระดับน้ำจากโมเดล Copernicus ที่กลางโซนวางอวน (${T.at[0]}°N ${T.at[1]}°E) วัดเทียบระดับทะเลปานกลาง ตัวเลขความสูงจึงไม่ตรงกับตารางน้ำของกรมอุทกศาสตร์ ให้ดู<b>เวลา</b>และ<b>ขนาดการขึ้นลง</b>เป็นหลัก · ข้างขึ้นข้างแรมนับจากวันเดือนดับและเดือนเพ็ญจริง อาจต่างจากปฏิทินจันทรคติไทยได้ 1 วันในบางเดือน · น้ำเกิด = ขึ้นลง 1.8 ม. ขึ้นไป, น้ำตาย = 1.3 ม. ลงมา (เกณฑ์ทดลอง)`;
+    $("tNote").innerHTML = `ระดับน้ำทำให้อ่านแบบเดียวกับ<b>ตารางน้ำปากน้ำแม่กลอง ของกรมอุทกศาสตร์</b> (เมตรเหนือระดับน้ำลงต่ำสุด) โดยใช้พยากรณ์ Copernicus ที่ปรับเวลาและฐานกับตารางแล้ว ห่างจากตารางเฉลี่ยราว 10 ซม. · ต่างจากตาราง: <b>รวมผลของลมมรสุมแล้ว</b> ช่วงลมแรงน้ำอาจสูงหรือต่ำกว่าตาราง · ที่ชะอำน้ำขึ้นลงเวลาเดียวกับแม่กลอง แต่ขึ้นลงน้อยกว่าราว 15% · กราฟกระแสน้ำเป็นของโซนวางอวน · ข้างขึ้นข้างแรมอาจต่างจากปฏิทินไทย 1 วันในบางเดือน · น้ำเกิด = ขึ้นลงวันละ 2.2 ม. ขึ้นไป, น้ำตาย = 1.8 ม. ลงมา`;
   }
 
   /* modes */
