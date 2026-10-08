@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-256.png">
+<link rel="apple-touch-icon" href="icon-256.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>NetSpot</title>
+<meta name="theme-color" content="#0b6b80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<style>
+/* Layout: one-screen phone app — slim top bar, full-bleed map with floating controls, bottom tab bar; sheets slide up over the map. */
+:root {
+  --bg: #e9eef1;
+  --surface: #ffffff;
+  --surface-2: #f2f6f8;
+  --ink: #0f2430;
+  --ink-2: #4b6170;
+  --line: #d3dde3;
+  --accent: #0b6b80;
+  --accent-ink: #ffffff;
+  --sea: #cfe3ec;
+  --land: #e4dfd2;
+  --land-line: #9d947d;
+  --contour: #2c5d78;
+  --limit: #b3261e;
+  --arrow: #0f2430;
+  --fish-a: #3f86d6; --fish-b: #6fb6e8; --fish-c: #3aa99b; --fish-eye: #ffffff;
+  --fish-line: #12355b;
+  --tile: #eaf4fb;
+  --halo: #ffffff;
+  --shadow: 0 6px 24px rgba(15, 36, 48, .18);
+  --night: rgba(15, 36, 48, .06);
+  --moon-lit: #f2cf5b; --moon-dark: #c9d3d9;
+  --warn: #9a5b00; --warn-bg: #fdf0d8;
+  --font-display: "Chakra Petch", "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b141a; --surface: #12202a; --surface-2: #182a36; --ink: #e6eff4; --ink-2: #9db2bf; --line: #24394a;
+    --accent: #4fc0d6; --accent-ink: #062027; --sea: #10232e; --land: #2b2a24; --land-line: #5b5543; --contour: #8cc4dc;
+    --limit: #ff8a80; --arrow: #e6eff4; --fish-a: #4f97e6; --fish-b: #8cc8f0; --fish-c: #4cc0b0; --fish-eye: #ffffff;
+    --fish-line: #0a2440; --tile: #d9ecf8; --halo: #d9ecf8; --shadow: 0 6px 24px rgba(0, 0, 0, .5);
+    --night: rgba(0, 0, 0, .28); --moon-lit: #f2d77a; --moon-dark: #33434e;
+    --warn: #f2b453; --warn-bg: #3a2a0c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b141a; --surface: #12202a; --surface-2: #182a36; --ink: #e6eff4; --ink-2: #9db2bf; --line: #24394a;
+  --accent: #4fc0d6; --accent-ink: #062027; --sea: #10232e; --land: #2b2a24; --land-line: #5b5543; --contour: #8cc4dc;
+  --limit: #ff8a80; --arrow: #e6eff4; --fish-a: #4f97e6; --fish-b: #8cc8f0; --fish-c: #4cc0b0; --fish-eye: #ffffff;
+  --fish-line: #0a2440; --tile: #d9ecf8; --halo: #d9ecf8; --shadow: 0 6px 24px rgba(0, 0, 0, .5);
+    --night: rgba(0, 0, 0, .28); --moon-lit: #f2d77a; --moon-dark: #33434e;
+  --warn: #f2b453; --warn-bg: #3a2a0c; color-scheme: dark;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+html { height: 100%; }
+body { height: 100%; margin: 0; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.45; }
+button { font: inherit; color: inherit; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.app { height: 100%; display: flex; flex-direction: column; max-width: 640px; margin: 0 auto; background: var(--bg); }
+.top { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--accent); color: var(--accent-ink); }
+.top b { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: .02em; }
+.top .stamp.stale { background: var(--warn-bg); color: var(--warn); border-radius: 6px; padding: 1px 6px; opacity: 1; font-weight: 600; flex: 0 1 auto; margin-right: auto; }
+.top .stamp { font-size: .8rem; opacity: .9; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.iconbtn { border: 0; background: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; cursor: pointer; color: inherit; flex: none; }
+.iconbtn svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.mapwrap { position: relative; flex: 1; min-height: 0; }
+#map { position: absolute; inset: 0; background: var(--sea); }
+.leaflet-container { font-family: var(--font-body); background: var(--sea); }
+
+/* floating controls */
+.chips { position: absolute; z-index: 800; top: 10px; left: 0; right: 56px; display: flex; gap: 8px; overflow-x: auto; padding: 2px 12px 6px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 8px 14px; font-size: .92rem; box-shadow: var(--shadow); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.fab { position: absolute; z-index: 800; right: 10px; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; }
+.fab svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#fabLayers { top: 10px; }
+#fabHome { top: 62px; }
+
+.bottomstack { position: absolute; z-index: 800; left: 0; right: 0; bottom: 0; display: grid; gap: 8px; padding: 0 10px 10px; pointer-events: none; }
+.bottomstack > * { pointer-events: auto; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 8px 12px; }
+.legend .t { font-size: .78rem; color: var(--ink-2); display: flex; justify-content: space-between; gap: 8px; }
+.legend .bar { height: 10px; border-radius: 5px; margin: 4px 0 2px; }
+.legend .ticks { display: flex; justify-content: space-between; font-family: var(--font-display); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.timebar { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 10px; }
+.timebar label { font-family: var(--font-display); font-weight: 600; font-variant-numeric: tabular-nums; font-size: .95rem; grid-column: 1 / -1; }
+.timebar input { width: 100%; accent-color: var(--accent); height: 30px; grid-column: 1 / -1; }
+
+.cards { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 4px; scrollbar-width: none; }
+.cards::-webkit-scrollbar { display: none; }
+.card { flex: 0 0 82%; max-width: 300px; scroll-snap-align: start; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 2px 10px; align-items: center; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 10px 12px; cursor: pointer; }
+.card.on { border: 2px solid var(--accent); padding: 9px 11px; }
+.card .tile { width: 56px; height: 47px; grid-row: span 2; }
+.card b { font-family: var(--font-display); font-size: 1.05rem; }
+.card .lvl { font-size: .75rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--warn-bg); color: var(--warn); margin-left: 6px; }
+.card .sub { font-size: .82rem; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* bottom sheet */
+.scrim { position: absolute; inset: 0; z-index: 900; background: rgba(0, 0, 0, .25); }
+.sheet { position: absolute; z-index: 950; left: 0; right: 0; bottom: 0; max-height: 72%; overflow-y: auto; background: var(--surface); border-radius: 18px 18px 0 0; box-shadow: 0 -8px 30px rgba(0, 0, 0, .25); padding: 6px 16px 18px; }
+.sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line); margin: 4px auto 6px; }
+.sheet .hd { display: flex; align-items: center; gap: 8px; }
+.sheet h2 { font-family: var(--font-display); font-size: 1.2rem; margin: 0; flex: 1; }
+.sheet h3 { font-family: var(--font-display); font-size: 1rem; margin: 14px 0 4px; }
+.sheet ul { margin: 0; padding-left: 1.15em; display: grid; gap: 4px; }
+.sheet p { margin: 4px 0; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin-top: 8px; align-items: baseline; }
+.kv .k { color: var(--ink-2); font-size: .85rem; }
+.kv .v { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.kv .v small { font-family: var(--font-body); font-weight: 400; font-size: .8rem; color: var(--ink-2); }
+.pos { font-family: var(--font-display); font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: .9rem; }
+.small { font-size: .85rem; color: var(--ink-2); }
+.tg { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.tg:last-child { border-bottom: 0; }
+.tg input { width: 22px; height: 22px; accent-color: var(--accent); flex: none; }
+.fishscale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; text-align: center; font-size: .78rem; color: var(--ink-2); }
+.fishscale .tile { width: 100%; max-width: 52px; height: auto; aspect-ratio: 48 / 40; display: block; margin: 0 auto; }
+
+/* tab bar */
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--surface); border-top: 1px solid var(--line); }
+.tabs button { border: 0; background: none; padding: 8px 4px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: .85rem; color: var(--ink-2); cursor: pointer; }
+.tabs svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tabs button[aria-selected="true"] { color: var(--accent); font-weight: 600; }
+
+/* tide page */
+.tidepage { position: absolute; inset: 0; z-index: 850; overflow-y: auto; background: var(--bg); padding: 12px 12px 24px; display: grid; gap: 12px; align-content: start; }
+.tcard { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; min-width: 0; }
+.tcard h2 { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 6px; }
+.today { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 14px; align-items: center; }
+.today .moon { grid-row: span 3; width: 64px; height: 64px; }
+.today .lunar { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
+.today .next { font-size: .95rem; }
+.today .next b { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; font-size: .78rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); border: 1px solid var(--line); }
+.pill.spring { background: var(--warn-bg); color: var(--warn); border-color: transparent; }
+.pill.neap { background: var(--surface-2); color: var(--accent); }
+.readout { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: .95rem; min-height: 1.5em; color: var(--ink); }
+.readout small { font-family: var(--font-body); color: var(--ink-2); }
+.chartscroll { overflow-x: auto; margin: 4px -14px 0; padding: 0 14px; scrollbar-width: thin; touch-action: pan-x pan-y; }
+.chartscroll svg { display: block; }
+.chartscroll text { font-family: var(--font-body); }
+.days { display: grid; gap: 0; }
+.day { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 2px 10px; padding: 10px 0; border-bottom: 1px solid var(--line); align-items: center; }
+.day:last-child { border-bottom: 0; }
+.day.today-row { background: color-mix(in srgb, var(--accent) 8%, transparent); margin: 0 -14px; padding: 10px 14px; }
+.day svg { width: 28px; height: 28px; grid-row: span 2; }
+.day .dh { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.day .dh b { font-weight: 600; }
+.day .dh span { font-size: .85rem; color: var(--ink-2); }
+.ev { display: flex; flex-wrap: wrap; gap: 4px 12px; font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: .95rem; }
+.ev .hi { color: var(--accent); }
+.ev .lo { color: var(--ink-2); }
+
+/* map labels and markers */
+.place { font-weight: 600; font-size: 12px; color: var(--ink); text-shadow: 0 0 3px var(--surface), 0 0 3px var(--surface); white-space: nowrap; }
+.place.home { color: var(--accent); font-size: 13px; }
+.dlabel { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--contour); text-shadow: 0 0 3px var(--surface), 0 0 3px var(--surface); white-space: nowrap; }
+.llabel { font-size: 11px; font-weight: 600; color: var(--limit); text-shadow: 0 0 3px var(--surface), 0 0 3px var(--surface); white-space: nowrap; }
+.fishmark { position: relative; width: 48px; height: 40px; cursor: pointer; filter: drop-shadow(0 0 1.2px var(--halo)) drop-shadow(0 0 1.2px var(--halo)) drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
+.fishmark .tile { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fishmark .n { position: absolute; top: -8px; left: -8px; font-family: var(--font-display); font-weight: 700; font-size: 12px; background: var(--fish-line); color: var(--tile); border: 1.5px solid var(--halo); border-radius: 999px; width: 21px; height: 21px; display: grid; place-items: center; }
+.fishmark.on .n { background: var(--accent); color: var(--accent-ink); }
+.tapdot { width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--accent); background: var(--surface); }
+@media (prefers-reduced-motion: no-preference) { .sheet { animation: up .18s ease-out; } @keyframes up { from { transform: translateY(24px); opacity: .6; } } }
+</style>
+
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <b>NetSpot</b>
+    <span class="stamp" id="stamp"></span>
+    <button type="button" class="iconbtn" id="btnInfo" aria-label="ข้อมูลและวิธีคิด"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button>
+  </header>
+
+  <main class="mapwrap">
+    <div id="map" role="region" aria-label="แผนที่ทะเลนอกชะอำ แตะเพื่อดูค่าที่จุดนั้น"></div>
+
+    <div class="chips" id="chips" hidden role="group" aria-label="ชั้นข้อมูล">
+      <button type="button" class="chip" data-layer="cur" aria-pressed="true">กระแสน้ำ</button>
+      <button type="button" class="chip" data-layer="sal" aria-pressed="false">ความเค็ม</button>
+      <button type="button" class="chip" data-layer="chl" aria-pressed="false">แพลงก์ตอน</button>
+      <button type="button" class="chip" data-layer="sst" aria-pressed="false">อุณหภูมิ</button>
+      <button type="button" class="chip" data-layer="depth" aria-pressed="false">ความลึก</button>
+    </div>
+    <button type="button" class="fab" id="fabLayers" aria-label="เลือกเส้นที่แสดง"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg></button>
+    <button type="button" class="fab" id="fabHome" aria-label="กลับไปโซนชะอำ"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button>
+
+    <div class="bottomstack">
+      <div class="panel timebar" id="timebar" hidden>
+        <label for="hour" id="hourLabel"></label>
+        <input type="range" id="hour" min="0" max="47" step="1" value="0">
+      </div>
+      <div class="panel legend" id="legend" hidden></div>
+      <div class="cards" id="cards" aria-label="จุดแนะนำ"></div>
+    </div>
+
+    <section class="tidepage" id="tidepage" hidden aria-label="น้ำขึ้นน้ำลง">
+      <div class="tcard today" id="tToday"></div>
+      <div class="tcard">
+        <h2>ระดับน้ำ 10 วัน</h2>
+        <div class="readout" id="tRead">แตะหรือลากบนกราฟเพื่อดูระดับน้ำแต่ละชั่วโมง</div>
+        <div class="chartscroll" id="tScroll"></div>
+      </div>
+      <div class="tcard">
+        <h2>กระแสน้ำในโซนวางอวน 48 ชม.</h2>
+        <div class="readout" id="cRead">แตะหรือลากบนกราฟเพื่อดูความแรงแต่ละชั่วโมง</div>
+        <div class="chartscroll" id="cScroll"></div>
+      </div>
+      <div class="tcard"><h2>รายวัน</h2><div class="days" id="tDays"></div></div>
+      <p class="small" id="tNote"></p>
+    </section>
+
+    <div class="scrim" id="scrim" hidden></div>
+    <section class="sheet" id="sheet" hidden aria-live="polite"></section>
+  </main>
+
+  <nav class="tabs" role="tablist" aria-label="หน้า">
+    <button type="button" role="tab" data-mode="rec" aria-selected="true">
+      <svg viewBox="0 0 24 24"><path d="M3 12c3-5 10-6 14-2l4-3-1 5 1 5-4-3c-4 4-11 3-14-2z"/><circle cx="8" cy="11" r=".8"/></svg>จุดแนะนำ</button>
+    <button type="button" role="tab" data-mode="data" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M2 9c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></svg>ข้อมูลทะเล</button>
+    <button type="button" role="tab" data-mode="tide" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M2 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M12 3v9M8.5 8.5 12 12l3.5-3.5"/></svg>น้ำขึ้นลง</button>
+  </nav>
+</div>
+
+<div id="gate" hidden style="position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:24px;background:var(--bg);text-align:center">
+  <div style="max-width:340px"><h2 style="font-family:var(--font-display);margin:0 0 8px"></h2><p style="color:var(--ink-2);margin:0"></p></div></div>
+<script src="loader.js"></script>
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/d3.min.js"></script>
+<script>
+(async function () {
+  const D = await NS_loadData(); if (!D) return;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const TH_MONTH = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
+  const thDate = iso => { const d = new Date(iso); return `${d.getUTCDate()} ${TH_MONTH[d.getUTCMonth()]} ${String(d.getUTCFullYear() + 543).slice(-2)}`; };
+  const $ = id => document.getElementById(id);
+
+  const PORT = [12.80, 99.975]; // ท่าแพสี่พี่น้อง 2 ชะอำ (approx.)
+  const KM_LAT = 111.32, KM_LON = 111.32 * Math.cos(12.7 * Math.PI / 180);
+  const NM3 = 3 * 1.852;
+
+  /* ---------- grid helpers ---------- */
+  const dLat = g => (g.lat1 - g.lat0) / (g.nlat - 1), dLon = g => (g.lon1 - g.lon0) / (g.nlon - 1);
+  const lat = (g, i) => g.lat0 + i * dLat(g), lon = (g, j) => g.lon0 + j * dLon(g);
+  function sample(g, la, lo, arr) {
+    const i = Math.round((la - g.lat0) / dLat(g)), j = Math.round((lo - g.lon0) / dLon(g));
+    if (i < 0 || j < 0 || i >= g.nlat || j >= g.nlon) return null;
+    const v = (arr || g.v)[i * g.nlon + j];
+    return v == null || Number.isNaN(v) ? null : v;
+  }
+  const bounds = g => [[g.lat0 - dLat(g) / 2, g.lon0 - dLon(g) / 2], [g.lat1 + dLat(g) / 2, g.lon1 + dLon(g) / 2]];
+  function filled(g, passes) {
+    let v = g.v.map(x => x == null ? NaN : x);
+    for (let p = 0; p < passes; p++) {
+      const n = v.slice();
+      for (let i = 0; i < g.nlat; i++) for (let j = 0; j < g.nlon; j++) {
+        const k = i * g.nlon + j; if (!isNaN(v[k])) continue;
+        let s = 0, c = 0;
+        for (const [a, b] of [[1,0],[-1,0],[0,1],[0,-1]]) { const ii = i + a, jj = j + b;
+          if (ii >= 0 && jj >= 0 && ii < g.nlat && jj < g.nlon && !isNaN(v[ii * g.nlon + jj])) { s += v[ii * g.nlon + jj]; c++; } }
+        if (c) n[k] = s / c;
+      }
+      v = n;
+    }
+    return v;
+  }
+  const kmBetween = (a, b) => Math.hypot((a[0] - b[0]) * KM_LAT, (a[1] - b[1]) * KM_LON);
+  const DIRS = ["เหนือ", "ตอ.เฉียงเหนือ", "ตะวันออก", "ตอ.เฉียงใต้", "ใต้", "ตต.เฉียงใต้", "ตะวันตก", "ตต.เฉียงเหนือ"];
+  const bearing = (a, b) => DIRS[Math.round(((Math.atan2((b[1] - a[1]) * KM_LON, (b[0] - a[0]) * KM_LAT) * 180 / Math.PI + 360) % 360) / 45) % 8];
+  const dms = (v, h) => { const a = Math.abs(v), d = Math.floor(a), m = Math.floor((a - d) * 60), s = Math.round(((a - d) * 60 - m) * 60);
+    return `${d}°${String(m).padStart(2, "0")}′${String(s).padStart(2, "0")}″${h}`; };
+  const logbookStyle = v => { const a = Math.abs(v), d = Math.floor(a), m = Math.floor((a - d) * 60), s = Math.round(((a - d) * 60 - m) * 60);
+    return `${d}.${String(m).padStart(2, "0")}.${String(s).padStart(2, "0")}`; };
+
+  /* ---------- derived fields on the 1 km SST grid ---------- */
+  const G = D.sst, N = G.nlat * G.nlon;
+  // distance to coast (km): chamfer transform from MUR land cells
+  const dist = new Float32Array(N).fill(1e9);
+  for (let k = 0; k < N; k++) if (G.v[k] == null) dist[k] = 0;
+  const ax = dLon(G) * KM_LON, ay = dLat(G) * KM_LAT, dg = Math.hypot(ax, ay);
+  const fw = [[-1, -1, dg], [-1, 0, ay], [-1, 1, dg], [0, -1, ax]], bw = [[1, 1, dg], [1, 0, ay], [1, -1, dg], [0, 1, ax]];
+  const pass = (order, nb) => { for (const i of order(G.nlat)) for (const j of order(G.nlon)) { const k = i * G.nlon + j;
+    for (const [a, b, w] of nb) { const ii = i + a, jj = j + b; if (ii < 0 || jj < 0 || ii >= G.nlat || jj >= G.nlon) continue;
+      const c = dist[ii * G.nlon + jj] + w; if (c < dist[k]) dist[k] = c; } } };
+  const up = n => Array.from({ length: n }, (_, i) => i), down = n => up(n).reverse();
+  pass(up, fw); pass(down, bw);
+  // SST front strength (°C per km)
+  const sf = filled(G, 4), grad = new Float32Array(N);
+  for (let i = 1; i < G.nlat - 1; i++) for (let j = 1; j < G.nlon - 1; j++) {
+    const k = i * G.nlon + j; if (G.v[k] == null) continue;
+    const gx = (sf[k + 1] - sf[k - 1]) / (2 * ax), gy = (sf[k + G.nlon] - sf[k - G.nlon]) / (2 * ay);
+    grad[k] = Math.hypot(gx, gy);
+  }
+
+  const LEVELS = ["", "น้อย", "พอใช้", "ปานกลาง", "ดี", "ดีมาก"];
+  const C = D.cur, KN = 1.944;
+  const curAt = (h, la, lo) => { const u = sample(C, la, lo, C.u[h]), v = sample(C, la, lo, C.vv[h]); return u == null || v == null ? null : [u, v]; };
+  const maxCur = (la, lo) => { let m = 0; for (let h = 0; h < C.times.length; h++) { const c = curAt(h, la, lo); if (c) m = Math.max(m, Math.hypot(c[0], c[1])); } return m * KN; };
+  const flowDir = ([u, v]) => DIRS[Math.round(((Math.atan2(u, v) * 180 / Math.PI + 360) % 360) / 45) % 8];
+  const salScore = s => s == null ? 0.7 : s < 18 ? 0 : s < 26 ? (s - 18) / 8 : 1;
+  const o2Score = o => o == null || o >= 120 ? 1 : o < 62 ? 0 : (o - 62) / 58;
+  /* ---------- habitat score (rule-based guess, see side panel) ---------- */
+  const depthScore = d => d < 9 ? 0 : d < 13 ? (d - 9) / 4 : d <= 22 ? 1 : d <= 28 ? (28 - d) / 6 : 0;
+  const chlScore = c => c == null ? 0.3 : Math.exp(-Math.pow((Math.log10(c) - Math.log10(1.8)) / 0.35, 2));
+  const gsea = Array.from(grad).filter((x, k) => G.v[k] != null && x > 0).sort((a, b) => a - b);
+  const G95 = gsea[Math.floor(gsea.length * 0.95)] || 1;
+  const raw = new Float32Array(N), parts = [];
+  for (let i = 0; i < G.nlat; i++) for (let j = 0; j < G.nlon; j++) {
+    const k = i * G.nlon + j; if (G.v[k] == null) continue;
+    const la = lat(G, i), lo = lon(G, j);
+    if (dist[k] < NM3 || kmBetween([la, lo], PORT) > 75) continue;
+    const dep = sample(D.depth, la, lo); if (dep == null || dep >= 0) continue;
+    const c = sample(D.chl, la, lo), fd = depthScore(-dep), fc = chlScore(c), ff = Math.min(1, grad[k] / G95);
+    raw[k] = fd * salScore(sample(D.sob, la, lo)) * o2Score(sample(D.o2b, la, lo)) * (0.65 * fc + 0.35 * ff);
+  }
+  const score = new Float32Array(N), R = 3; // smooth over ~3 km
+  for (let i = 0; i < G.nlat; i++) for (let j = 0; j < G.nlon; j++) {
+    let s = 0, c = 0;
+    for (let a = -R; a <= R; a++) for (let b = -R; b <= R; b++) { const ii = i + a, jj = j + b;
+      if (ii < 0 || jj < 0 || ii >= G.nlat || jj >= G.nlon) continue; s += raw[ii * G.nlon + jj]; c++; }
+    score[i * G.nlon + j] = raw[i * G.nlon + j] > 0 ? s / c : 0;
+  }
+  const order = Array.from(score.keys()).filter(k => score[k] > 0).sort((a, b) => score[b] - score[a]);
+  const SMAX = score[order[0]] || 1, spots = [];
+  for (const k of order) {
+    if (spots.length >= 5 || score[k] < 0.5 * SMAX) break;
+    const p = [lat(G, Math.floor(k / G.nlon)), lon(G, k % G.nlon)];
+    if (spots.every(s => kmBetween(s.p, p) > 13)) spots.push({ k, p });
+  }
+  spots.forEach((s, r) => {
+    const [la, lo] = s.p, dep = -sample(D.depth, la, lo), c = sample(D.chl, la, lo), f = grad[s.k] / G95;
+    s.rank = r + 1; s.score = score[s.k];
+    s.fish = Math.max(1, Math.min(5, Math.ceil((s.score - 0.45) / 0.1)));
+    s.lvl = LEVELS[s.fish];
+    s.km = kmBetween(PORT, s.p); s.dir = bearing(PORT, s.p); s.dep = dep; s.chl = c; s.sst = sample(G, la, lo);
+    s.why = [`ลึก ~${dep} ม. อยู่ในช่วงที่วางอวนได้`,
+      c == null ? "ไม่มีข้อมูลแพลงก์ตอน (เมฆ)" : c >= 0.9 && c <= 4 ? `แพลงก์ตอนกำลังดี (${c.toFixed(1)})` : c > 4 ? `แพลงก์ตอนหนามาก (${c.toFixed(1)})` : `แพลงก์ตอนค่อนข้างน้อย (${c.toFixed(1)})`];
+    s.sal = sample(D.sob, la, lo); s.o2 = sample(D.o2b, la, lo); s.cmax = maxCur(la, lo);
+    s.why.push(s.sal == null ? "ไม่มีข้อมูลความเค็ม" : s.sal >= 26 ? `น้ำพื้นเค็มดี (${s.sal.toFixed(0)} ppt)` : `น้ำพื้นค่อนข้างจืด (${s.sal.toFixed(0)} ppt)`);
+    if (f > 0.6) s.why.push("ใกล้แนวน้ำอุ่นชนน้ำเย็น");
+  });
+
+  /* ---------- colour ---------- */
+  const SSTPAL = ["#2c5f9e", "#3d8fb8", "#6cbcbc", "#bfe0a0", "#f3d27a", "#ef9a4a", "#d9542f"];
+  const CHLPAL = ["#e9f2dc", "#bfe0a6", "#86c47a", "#4c9e57", "#2d7a45", "#4f6b2a", "#6b5a22"];
+  const DEPPAL = ["#d8eef5", "#a9d6e6", "#73b6d2", "#4793bb", "#2a6f9c", "#1b4f78"];
+  const HOTPAL = ["#fff1d6", "#f9c88c", "#ef9a4a", "#d9542f"];
+  const SALPAL = ["#8a6a3a", "#c9a96b", "#e8e2c4", "#9fd0dc", "#4f9cc4", "#22609a"];
+  const CURPAL = ["#e8f0f4", "#b9d7e6", "#7fb6d6", "#f0c27a", "#e0823e", "#b8421f"];
+  const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  function colour(pal, t) {
+    t = Math.max(0, Math.min(1, t)) * (pal.length - 1);
+    const i = Math.min(Math.floor(t), pal.length - 2), f = t - i, a = hex(pal[i]), b = hex(pal[i + 1]);
+    return a.map((x, k) => Math.round(x + (b[k] - x) * f));
+  }
+  function raster(g, vals, fn, pal, alpha) {
+    const c = document.createElement("canvas"); c.width = g.nlon; c.height = g.nlat;
+    const x = c.getContext("2d"), img = x.createImageData(g.nlon, g.nlat);
+    for (let i = 0; i < g.nlat; i++) for (let j = 0; j < g.nlon; j++) {
+      const t = fn(vals[i * g.nlon + j]); if (t == null) continue;
+      const k = ((g.nlat - 1 - i) * g.nlon + j) * 4, [r, gg, b] = colour(pal, t);
+      img.data[k] = r; img.data[k + 1] = gg; img.data[k + 2] = b; img.data[k + 3] = typeof alpha === "function" ? alpha(t) : alpha;
+    }
+    x.putImageData(img, 0, 0); return c.toDataURL();
+  }
+
+
+
+  /* ---------- fish tiles ---------- */
+  const oneFish = (x, y, s, c) => `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M11 12 3 4.5 5.5 12 3 19.5Z" fill="var(--fish-${c})" stroke="var(--fish-line)" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M17 6.2 21 2.5 24.5 5.6" fill="var(--fish-${c})" stroke="var(--fish-line)" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M10 12C14 4 28 3 35 12 28 21 14 20 10 12Z" fill="var(--fish-${c})" stroke="var(--fish-line)" stroke-width="1.3"/>
+    <path d="M26 6.5Q23 12 26 17.5" fill="none" stroke="var(--fish-line)" stroke-width="1" opacity=".55"/>
+    <circle cx="29.5" cy="10.5" r="2.1" fill="var(--fish-eye)"/><circle cx="29.9" cy="10.5" r="1.1" fill="var(--fish-line)"/></g>`;
+  const LAYOUT = {
+    1: [[5, 8, 1, "a"]],
+    2: [[10, 3, .82, "b"], [3, 14, .86, "a"]],
+    3: [[11, 1, .74, "b"], [11, 19, .74, "b"], [3, 10, .84, "a"]],
+    4: [[13, 0, .68, "b"], [2, 7, .7, "c"], [13, 20, .68, "b"], [6, 11, .8, "a"]],
+    5: [[15, 0, .6, "b"], [1, 3, .62, "c"], [15, 23, .6, "b"], [1, 22, .62, "c"], [7, 11, .76, "a"]]
+  };
+  const fishTile = n => `<svg class="tile" viewBox="0 0 48 40" aria-hidden="true">${LAYOUT[n].map(f => oneFish(...f)).join("")}</svg>`;
+
+  /* ---------- map ---------- */
+  const HOME = [[12.2, 99.85], [13.3, 100.75]];
+  const FIT = { paddingTopLeft: [10, 60], paddingBottomRight: [10, 150] };
+  const map = L.map("map", { zoomControl: false, attributionControl: false, minZoom: 8, maxZoom: 13, zoomSnap: 0.5, maxBounds: [[11.6, 99.2], [13.9, 101.5]] })
+    .fitBounds(HOME, FIT);
+  [["data", 300], ["contour", 350], ["land", 420], ["zone", 430], ["labels", 450], ["fish", 620]].forEach(([n, z]) => { map.createPane(n).style.zIndex = z; });
+  map.getPane("labels").style.pointerEvents = "none";
+  new ResizeObserver(() => map.invalidateSize()).observe($("map"));
+
+  let mode = "rec", layer = "cur", overlay = null, selected = null;
+  const prefs = (() => { try { return JSON.parse(localStorage.getItem("netspot-prefs")) || {}; } catch (e) { return {}; } })();
+  const show = Object.assign({ limit: true, zone: true, contour: true }, prefs);
+  const savePrefs = () => { try { localStorage.setItem("netspot-prefs", JSON.stringify(show)); } catch (e) {} };
+
+  /* time slider for currents */
+  const TZ = 7 * 3600e3, C2 = D.cur;
+  const thHour = iso => { const d = new Date(new Date(iso).getTime() + TZ); return `${d.getUTCDate()} ${TH_MONTH[d.getUTCMonth()]} ${String(d.getUTCHours()).padStart(2, "0")}:00 น.`; };
+  const hourInput = $("hour");
+  (function () { const now = Date.now(); let best = 0;
+    C2.times.forEach((t, i) => { if (Math.abs(new Date(t) - now) < Math.abs(new Date(C2.times[best]) - now)) best = i; });
+    hourInput.max = C2.times.length - 1; hourInput.value = best; })();
+  const setHourLabel = () => { $("hourLabel").textContent = "กระแสน้ำ เวลา " + thHour(C2.times[+hourInput.value]); };
+  hourInput.addEventListener("input", () => { setHourLabel(); if (mode === "data" && layer === "cur") drawOverlay(); });
+  setHourLabel();
+
+  /* overlays */
+  function visibleRange(g, vals, tf) {
+    const b = map.getBounds(), xs = [];
+    for (let i = 0; i < g.nlat; i++) { const la = lat(g, i); if (la < b.getSouth() || la > b.getNorth()) continue;
+      for (let j = 0; j < g.nlon; j++) { const lo = lon(g, j); if (lo < b.getWest() || lo > b.getEast()) continue;
+        const v = vals[i * g.nlon + j]; if (v != null && !Number.isNaN(v)) xs.push(tf ? tf(v) : v); } }
+    if (xs.length < 8) return null;
+    xs.sort((a, c) => a - c);
+    return [xs[Math.floor(xs.length * 0.03)], xs[Math.floor(xs.length * 0.97)]];
+  }
+  const arrowLayer = L.layerGroup();
+  function drawArrows(h) {
+    arrowLayer.clearLayers();
+    const col = css("--arrow");
+    for (let i = 0; i < C2.nlat; i++) for (let j = 0; j < C2.nlon; j++) {
+      const k = i * C2.nlon + j, u = C2.u[h][k], v = C2.vv[h][k]; if (u == null || v == null) continue;
+      const la = lat(C2, i), lo = lon(C2, j), sp = Math.hypot(u, v); if (sp < 0.02) continue;
+      const cl = Math.cos(la * Math.PI / 180), len = 0.012 + 0.03 * Math.min(sp * KN, 2) / 2, ux = u / sp, vy = v / sp;
+      const tip = [la + vy * len, lo + ux * len / cl];
+      const back = a => [tip[0] - (vy * Math.cos(a) - ux * Math.sin(a)) * 0.012, tip[1] - (ux * Math.cos(a) + vy * Math.sin(a)) * 0.012 / cl];
+      arrowLayer.addLayer(L.polyline([[la, lo], tip], { pane: "contour", color: col, weight: 1.8, interactive: false }));
+      arrowLayer.addLayer(L.polyline([back(0.45), tip, back(-0.45)], { pane: "contour", color: col, weight: 1.8, interactive: false }));
+    }
+  }
+  function legendHTML(l) {
+    return `<div class="t"><span>${l.title}</span><span>${l.date ? thDate(l.date) : ""}</span></div>
+      <div class="bar" style="background:linear-gradient(90deg,${l.pal.join(",")})"></div>
+      <div class="ticks">${l.ticks.map(t => `<span>${t}</span>`).join("")}</div>`;
+  }
+  function drawOverlay() {
+    if (overlay) map.removeLayer(overlay);
+    const isCur = mode === "data" && layer === "cur";
+    $("timebar").hidden = !isCur;
+    isCur ? arrowLayer.addTo(map) : map.removeLayer(arrowLayer);
+    let url, bnd, leg = null;
+    if (mode === "rec") {
+      url = raster(G, score, v => v > 0 ? v / SMAX : null, HOTPAL, t => Math.round(40 + 150 * t)); bnd = bounds(G);
+    } else if (layer === "cur") {
+      const h = +hourInput.value, sp = C2.u[h].map((u, k) => u == null || C2.vv[h][k] == null ? null : Math.hypot(u, C2.vv[h][k]) * KN);
+      url = raster(C2, sp, v => v == null ? null : v / 2, CURPAL, 200); bnd = bounds(C2);
+      leg = { title: "ความแรง (นอต) · ลูกศร = ทิศน้ำไหลไป", pal: CURPAL, ticks: ["0", "0.5", "1", "1.5", "2+"] };
+      drawArrows(h);
+    } else if (layer === "sal") {
+      url = raster(D.sob, D.sob.v, v => v == null ? null : (v - 14) / 19, SALPAL, 235); bnd = bounds(D.sob);
+      leg = { title: "ความเค็มที่พื้น (ppt) · ปูม้าชอบ 26+", pal: SALPAL, ticks: ["14", "20", "26", "33"], date: D.sob.time };
+    } else if (layer === "chl") {
+      const lg = v => Math.log10(Math.max(v, 0.05));
+      const r = visibleRange(D.chl, D.chl.v, lg) || [-1, 1], lo = r[0], hi = Math.max(r[1], lo + 0.3);
+      const f = x => { const v = Math.pow(10, x); return v < 1 ? v.toFixed(2) : v.toFixed(1); };
+      url = raster(D.chl, D.chl.v, v => v == null ? null : (lg(v) - lo) / (hi - lo), CHLPAL, 235); bnd = bounds(D.chl);
+      leg = { title: "แพลงก์ตอน · สีปรับตามที่ซูม", pal: CHLPAL, ticks: [f(lo), f((lo + hi) / 2), f(hi)], date: D.chl.time };
+    } else if (layer === "sst") {
+      const r = visibleRange(G, G.v) || [29.3, 30.2], lo = r[0], hi = Math.max(r[1], lo + 0.2);
+      url = raster(G, G.v, v => v == null ? null : (v - lo) / (hi - lo), SSTPAL, 235); bnd = bounds(G);
+      leg = { title: "อุณหภูมิผิวน้ำ °C · สีปรับตามที่ซูม", pal: SSTPAL, ticks: [lo, (lo + hi) / 2, hi].map(x => x.toFixed(2)), date: D.sst.time };
+    } else {
+      url = raster(D.depth, D.depth.v, v => v == null || v >= 0 ? null : Math.min(-v, 40) / 40, DEPPAL, 235); bnd = bounds(D.depth);
+      leg = { title: "ความลึก (เมตร)", pal: DEPPAL, ticks: ["0", "10", "20", "30", "40+"] };
+    }
+    overlay = L.imageOverlay(url, bnd, { pane: "data", interactive: false }).addTo(map);
+    $("legend").hidden = !leg;
+    if (leg) $("legend").innerHTML = legendHTML(leg);
+  }
+  map.on("moveend", () => { if (mode === "data" && (layer === "sst" || layer === "chl")) drawOverlay(); });
+
+  /* land, contours, legal line */
+  function blur(g, vals, r) {
+    const out = new Float32Array(vals.length);
+    for (let i = 0; i < g.nlat; i++) for (let j = 0; j < g.nlon; j++) { let s = 0, c = 0;
+      for (let a = -r; a <= r; a++) for (let b = -r; b <= r; b++) { const ii = i + a, jj = j + b;
+        if (ii < 0 || jj < 0 || ii >= g.nlat || jj >= g.nlon) continue; s += vals[ii * g.nlon + jj]; c++; }
+      out[i * g.nlon + j] = s / c; }
+    return Array.from(out);
+  }
+  function contourLayers(g, values, thresholds, pane, style, labelFn, cls, minPts = 10) {
+    const cs = d3.contours().size([g.nlon, g.nlat]).thresholds(thresholds)(values), out = [];
+    cs.forEach(c => { let best = null;
+      c.coordinates.forEach(poly => poly.forEach(ring => {
+        const edge = ([x, y]) => x <= 0.5 || y <= 0.5 || x >= g.nlon - 0.5 || y >= g.nlat - 0.5;
+        let seg = [];
+        const flush = () => { if (seg.length >= minPts) { out.push(L.polyline(seg, Object.assign({ pane, interactive: false, smoothFactor: 1.5 }, style(c.value))));
+          if (!best || seg.length > best.length) best = seg; } seg = []; };
+        ring.forEach(pt => { if (edge(pt)) flush(); else seg.push([g.lat0 + (pt[1] - 0.5) * dLat(g), g.lon0 + (pt[0] - 0.5) * dLon(g)]); });
+        flush(); }));
+      if (best && labelFn) out.push(L.marker(best[Math.floor(best.length * 0.3)], { pane: "labels", interactive: false,
+        icon: L.divIcon({ className: "", html: `<span class="${cls}">${labelFn(c.value)}</span>`, iconSize: null }) }));
+    });
+    return L.layerGroup(out);
+  }
+  const zone = L.rectangle(D.zone, { pane: "zone", weight: 2, dashArray: "6 5", fill: false, interactive: false });
+  let landLayer, depthLines, limitLine;
+  function drawStatic() {
+    [landLayer, depthLines, limitLine].forEach(l => l && map.removeLayer(l));
+    landLayer = L.polygon(D.land, { pane: "land", color: css("--land-line"), weight: 1, fillColor: css("--land"), fillOpacity: 1, interactive: false }).addTo(map);
+    const dg = D.depth;
+    depthLines = contourLayers(dg, blur(dg, dg.v.map(v => v == null ? 0 : Math.max(-v, 0)), 3), [10, 20, 30], "contour",
+      () => ({ color: css("--contour"), weight: 1.2, opacity: .7 }), v => v + " ม.", "dlabel", 40);
+    limitLine = contourLayers(G, Array.from(dist), [NM3], "zone", () => ({ color: css("--limit"), weight: 1.8, dashArray: "8 6", opacity: .9 }), () => "3 ไมล์", "llabel");
+    zone.setStyle({ color: css("--accent") });
+    syncLines();
+  }
+  function syncLines() {
+    const want = { limit: show.limit, zone: show.zone, contour: show.contour && mode === "data" };
+    [["limit", limitLine], ["zone", zone], ["contour", depthLines]].forEach(([k, l]) => want[k] ? l.addTo(map) : map.removeLayer(l));
+  }
+
+  /* places */
+  [["ชะอำ", 12.80, 99.97, "home"], ["หัวหิน", 12.57, 99.96], ["ปราณบุรี", 12.36, 99.98], ["สามร้อยยอด", 12.2, 99.98], ["เพชรบุรี", 13.11, 99.94],
+   ["บ้านแหลม", 13.2, 99.98], ["สมุทรสาคร", 13.54, 100.27], ["บางแสน", 13.28, 100.92], ["ศรีราชา", 13.17, 100.93], ["พัทยา", 12.93, 100.88],
+   ["สัตหีบ", 12.66, 100.90]].forEach(([n, la, lo, cls]) => {
+    L.circleMarker([la, lo], { pane: "labels", radius: cls ? 5 : 3, weight: 1.5, color: "#0f2430", fillColor: "#ffffff", fillOpacity: 1, interactive: false }).addTo(map);
+    L.marker([la, lo], { pane: "labels", interactive: false, icon: L.divIcon({ className: "", html: `<span class="place ${cls || ""}">${n}</span>`, iconSize: null, iconAnchor: cls ? [44, 9] : [-7, 8] }) }).addTo(map);
+  });
+
+  /* fish markers + cards */
+  const fishLayer = L.layerGroup();
+  spots.forEach(s => {
+    s.marker = L.marker(s.p, { pane: "fish", title: `จุดที่ ${s.rank}`,
+      icon: L.divIcon({ className: "", html: `<div class="fishmark" id="fm${s.rank}">${fishTile(s.fish)}<span class="n">${s.rank}</span></div>`, iconSize: [48, 40], iconAnchor: [24, 20] }) })
+      .on("click", e => { L.DomEvent.stopPropagation(e); openSpot(s, false); }).addTo(fishLayer);
+  });
+  $("cards").innerHTML = spots.map(s => `<button type="button" class="card" data-r="${s.rank}">${fishTile(s.fish)}
+      <span><b>${s.rank}. ${s.dir} ${s.km.toFixed(0)} กม.</b><span class="lvl">${s.lvl}</span></span>
+      <span class="sub">ลึก ~${s.dep} ม. · เค็ม ${s.sal == null ? "–" : s.sal.toFixed(0)} · กระแส ≤${s.cmax.toFixed(1)} นอต</span></button>`).join("");
+  $("cards").querySelectorAll(".card").forEach(b => b.addEventListener("click", () => openSpot(spots[b.dataset.r - 1], true)));
+  function highlight(s) {
+    selected = s;
+    document.querySelectorAll(".card").forEach(c => c.classList.toggle("on", s && +c.dataset.r === s.rank));
+    document.querySelectorAll(".fishmark").forEach(m => m.classList.toggle("on", s && m.id === "fm" + s.rank));
+  }
+
+  /* sheet */
+  const sheet = $("sheet"), scrim = $("scrim");
+  function openSheet(title, body, modal) {
+    sheet.innerHTML = `<div class="grab"></div><div class="hd"><h2>${title}</h2>
+      <button type="button" class="iconbtn" id="sheetClose" aria-label="ปิด"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>${body}`;
+    sheet.hidden = false; scrim.hidden = !modal;
+    $("sheetClose").addEventListener("click", closeSheet);
+  }
+  function closeSheet() { sheet.hidden = true; scrim.hidden = true; tapMarker.remove(); highlight(null); }
+  scrim.addEventListener("click", closeSheet);
+  let startY = null;
+  sheet.addEventListener("touchstart", e => { startY = sheet.scrollTop === 0 ? e.touches[0].clientY : null; }, { passive: true });
+  sheet.addEventListener("touchend", e => { if (startY != null && e.changedTouches[0].clientY - startY > 70) closeSheet(); startY = null; });
+
+  function openSpot(s, fly) {
+    highlight(s);
+    if (fly) map.flyTo(s.p, Math.max(map.getZoom(), 10.5), { duration: .5 });
+    const card = document.querySelector(`.card[data-r="${s.rank}"]`); card && card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    openSheet(`จุดที่ ${s.rank} · ${s.lvl}`, `
+      <div style="display:flex;gap:12px;align-items:center;margin-top:4px"><div style="width:64px;flex:none">${fishTile(s.fish)}</div>
+        <div><div>${s.dir}ของท่าชะอำ <b>${s.km.toFixed(0)} กม.</b> (${(s.km / 1.852).toFixed(0)} ไมล์ทะเล)</div>
+        <div class="pos">${logbookStyle(s.p[0])} N / ${logbookStyle(s.p[1])} E</div></div></div>
+      <div class="kv"><span class="k">ความลึก</span><span class="v">~${s.dep} ม.</span>
+        <span class="k">ความเค็มพื้น</span><span class="v">${s.sal == null ? "–" : s.sal.toFixed(1)} <small>ppt</small></span>
+        <span class="k">แพลงก์ตอน</span><span class="v">${s.chl == null ? "–" : s.chl.toFixed(2)}</span>
+        <span class="k">กระแสแรงสุด 48 ชม.</span><span class="v">${s.cmax.toFixed(1)} <small>นอต</small></span>
+        <span class="k">อุณหภูมิน้ำ</span><span class="v">${s.sst.toFixed(1)} <small>°C</small></span></div>
+      <h3>ทำไมแนะนำ</h3><ul>${s.why.map(w => `<li>${w}</li>`).join("")}</ul>`, false);
+  }
+
+  /* tap anywhere */
+  const tapMarker = L.marker([0, 0], { pane: "fish", interactive: false, icon: L.divIcon({ className: "", html: '<div class="tapdot"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }) });
+  const chlWord = v => v == null ? "" : v < 0.5 ? "น้อย" : v < 1.5 ? "ปานกลาง" : v < 4 ? "มาก" : "มากเป็นพิเศษ";
+  map.on("click", e => {
+    const la = e.latlng.lat, lo = e.latlng.lng, t = sample(G, la, lo);
+    highlight(null); tapMarker.setLatLng(e.latlng).addTo(map);
+    const pos = `<div class="pos">${logbookStyle(la)} N / ${logbookStyle(lo)} E · จากท่า ${kmBetween(PORT, [la, lo]).toFixed(0)} กม.</div>`;
+    if (t == null) { openSheet("บนบก", pos, false); return; }
+    const d = sample(D.depth, la, lo), c = sample(D.chl, la, lo), sal = sample(D.sob, la, lo), cur = curAt(+hourInput.value, la, lo);
+    const inLimit = (() => { const i = Math.round((la - G.lat0) / dLat(G)), j = Math.round((lo - G.lon0) / dLon(G)); return dist[i * G.nlon + j] < NM3; })();
+    openSheet("จุดที่แตะ", `${pos}
+      ${inLimit ? `<p style="color:var(--limit);font-weight:600">อยู่ในเขต 3 ไมล์จากฝั่ง (โดยประมาณ)</p>` : ""}
+      <div class="kv"><span class="k">ความลึก</span><span class="v">${d == null || d >= 0 ? "–" : "~" + (-d) + " ม."}</span>
+        <span class="k">กระแสน้ำ</span><span class="v">${cur == null ? "–" : (Math.hypot(...cur) * KN).toFixed(1)} <small>${cur == null ? "" : "นอต · ไหลไป" + flowDir(cur) + " · " + thHour(C2.times[+hourInput.value])}</small></span>
+        <span class="k">ความเค็มพื้น</span><span class="v">${sal == null ? "–" : sal.toFixed(1)} <small>ppt</small></span>
+        <span class="k">แพลงก์ตอน</span><span class="v">${c == null ? "–" : c.toFixed(2)} <small>${chlWord(c)}</small></span>
+        <span class="k">อุณหภูมิน้ำ</span><span class="v">${t.toFixed(2)} <small>°C</small></span></div>`, false);
+  });
+
+  /* info + layers sheets */
+  $("btnInfo").addEventListener("click", () => openSheet("ข้อมูลและวิธีคิด", `
+    <h3>ระดับปลา</h3><div class="fishscale">${[1, 2, 3, 4, 5].map(n => `<div>${fishTile(n)}${LEVELS[n]}</div>`).join("")}</div>
+    <h3>จุดแนะนำคิดจากอะไร</h3><ul class="small">
+      <li><b>ความลึก 13–22 ม.</b> ตามโซนที่วางอวนใน logbook</li>
+      <li><b>ความเค็มที่พื้น</b> ต่ำกว่า 18 ppt ตัดออก 18–26 ลดคะแนน</li>
+      <li><b>แพลงก์ตอนกำลังดี</b> ไม่น้อยเกิน ไม่หนาจนน่าห่วง</li>
+      <li><b>ออกซิเจนที่พื้น</b> ถ้าต่ำจะลดคะแนน</li>
+      <li><b>แนวน้ำอุ่นชนน้ำเย็น</b> น้ำหนักรองลงมา</li>
+      <li>ตัดเขต 3 ไมล์จากฝั่ง และไกลจากท่าเกิน 75 กม.</li></ul>
+    <p class="small"><b>ยังเป็นสูตรเดา</b> ยังไม่ได้เรียนจากผลจับจริง เส้น 3 ไมล์เป็นค่าประมาณ ใช้เส้นจากกรมประมงเป็นหลัก</p>
+    <h3>ข้อมูลล่าสุด</h3><ul class="small">
+      <li>กระแสน้ำ ความเค็ม ออกซิเจน: Copernicus Marine ${thDate(D.sob.time)}</li>
+      <li>อุณหภูมิน้ำ: NASA JPL MUR ${thDate(D.sst.time)}</li>
+      <li>แพลงก์ตอน: NOAA VIIRS/OLCI ${thDate(D.chl.time)}</li>
+      <li>ความลึก: NOAA ETOPO 2022 · ชายฝั่ง: Natural Earth · แผนที่: Leaflet</li></ul>`, true));
+  $("fabLayers").addEventListener("click", () => {
+    openSheet("เส้นบนแผนที่", `
+      <label class="tg"><span>เขต 3 ไมล์จากฝั่ง<br><span class="small">เรือพาณิชย์ห้ามเข้า (ค่าประมาณ)</span></span><input type="checkbox" id="sLimit" ${show.limit ? "checked" : ""}></label>
+      <label class="tg"><span>โซนวางอวนจาก logbook<br><span class="small">กรอบเส้นประ 4–6 ต.ค.</span></span><input type="checkbox" id="sZone" ${show.zone ? "checked" : ""}></label>
+      <label class="tg"><span>เส้นความลึก 10 / 20 / 30 ม.<br><span class="small">แสดงเฉพาะหน้าข้อมูลทะเล</span></span><input type="checkbox" id="sContour" ${show.contour ? "checked" : ""}></label>`, true);
+    [["sLimit", "limit"], ["sZone", "zone"], ["sContour", "contour"]].forEach(([id, k]) => $(id).addEventListener("change", e => { show[k] = e.target.checked; savePrefs(); syncLines(); }));
+  });
+  $("fabHome").addEventListener("click", () => map.flyToBounds(HOME, Object.assign({ duration: .5 }, FIT)));
+
+  /* ---------- tide page ---------- */
+  const T = D.tide, T0 = new Date(T.t0).getTime(), HR = 3600e3, DAY = 86400e3, TH_DAY = ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."];
+  const tAt = i => T0 + i * HR * T.step_h;
+  const loc = t => new Date(t + TZ);
+  const hm = t => { const d = loc(t); return `${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")}`; };
+  const dayKey = t => Math.floor((t + TZ) / DAY);
+  const dayName = k => { const d = new Date(k * DAY); return `${TH_DAY[d.getUTCDay()]} ${d.getUTCDate()} ${TH_MONTH[d.getUTCMonth()]}`; };
+  const SYN = 29.530588853;
+  // new/full moon instants (Meeus, Astronomical Algorithms ch. 49, main terms; error ~ minutes)
+  function truePhase(k) {
+    const T = k / 1236.85, d = Math.PI / 180, E = 1 - 0.002516 * T;
+    const M = (2.5534 + 29.1053567 * k) * d, Mp = (201.5643 + 385.81693528 * k + 0.0107582 * T * T) * d,
+      F = (160.7108 + 390.67050284 * k) * d, Om = (124.7746 - 1.56375588 * k) * d, full = k % 1 !== 0;
+    const c = full ? [-0.40614, 0.17302, 0.01614, 0.01043, 0.00734, -0.00515, 0.00209] : [-0.40720, 0.17241, 0.01608, 0.01039, 0.00739, -0.00514, 0.00208];
+    const JDE = 2451550.09766 + 29.530588861 * k + 0.00015437 * T * T
+      + c[0] * Math.sin(Mp) + c[1] * E * Math.sin(M) + c[2] * Math.sin(2 * Mp) + c[3] * Math.sin(2 * F) + c[4] * E * Math.sin(Mp - M)
+      + c[5] * E * Math.sin(Mp + M) + c[6] * E * E * Math.sin(2 * M) - 0.00111 * Math.sin(Mp - 2 * F) - 0.00057 * Math.sin(Mp + 2 * F)
+      + 0.00056 * E * Math.sin(2 * Mp + M) - 0.00042 * Math.sin(3 * Mp) + 0.00042 * E * Math.sin(M + 2 * F) + 0.00038 * E * Math.sin(M - 2 * F)
+      - 0.00024 * E * Math.sin(2 * Mp - M) - 0.00017 * Math.sin(Om);
+    return (JDE - 2440587.5) * 86400e3 - 69e3;
+  }
+  function lastNew(t) { let k = Math.floor(((t / 86400e3 + 2440587.5) - 2451550.09766) / SYN); while (truePhase(k) > t) k--; while (truePhase(k + 1) <= t) k++; return k; }
+  const moonAge = t => (t - truePhase(lastNew(t))) / DAY;
+  // Thai lunar day: count from the local day of the last new moon / full moon
+  function lunar(t) {
+    const k = lastNew(t), day = dayKey(t), nm = dayKey(truePhase(k)), fm = dayKey(truePhase(k + 0.5)), pf = dayKey(truePhase(k - 0.5));
+    const nextNm = dayKey(truePhase(k + 1));
+    if (day === fm) return "ขึ้น 15 ค่ำ · เดือนเพ็ญ";
+    if (day > fm) return `แรม ${day - fm} ค่ำ${day === nextNm ? " · เดือนดับ" : ""}`;
+    if (day === nm) return `แรม ${day - pf} ค่ำ · เดือนดับ`;
+    return `ขึ้น ${Math.min(day - nm, 14)} ค่ำ`;
+  }
+  function moonSVG(age, cls) {
+    const ph = age / SYN, k = Math.cos(2 * Math.PI * ph), wax = ph < .5, rx = (Math.abs(k) * 10).toFixed(2);
+    const sweep = wax ? (k > 0 ? 0 : 1) : (k > 0 ? 1 : 0);
+    return `<svg class="${cls || ""}" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--moon-dark)"/>
+      <path d="M12 2A10 10 0 0 ${wax ? 1 : 0} 12 22A${rx} 10 0 0 ${sweep} 12 2Z" fill="var(--moon-lit)"/></svg>`;
+  }
+  // highs and lows: local extremes of the hourly series, refined with a parabola
+  const EXT = (() => {
+    const v = T.lv, out = [];
+    for (let i = 1; i < v.length - 1; i++) {
+      const a = v[i - 1], b = v[i], c = v[i + 1]; if (a == null || b == null || c == null) continue;
+      const hi = b >= a && b > c, lo = b <= a && b < c; if (!hi && !lo) continue;
+      const den = a - 2 * b + c, d = den ? (a - c) / (2 * den) : 0;
+      out.push({ t: tAt(i + d), h: b - (a - c) * d / 4, hi });
+    }
+    for (let changed = true; changed;) { changed = false;   // drop wiggles smaller than 15 cm
+      for (let i = 0; i < out.length - 1; i++) if (Math.abs(out[i].h - out[i + 1].h) < 0.15) { out.splice(i, 2); changed = true; break; } }
+    return out;
+  })();
+  const rangeLabel = r => r >= 1.8 ? ["น้ำเกิด", "spring"] : r <= 1.3 ? ["น้ำตาย", "neap"] : ["น้ำปานกลาง", ""];
+  function daysInfo() {
+    const by = new Map();
+    T.lv.forEach((h, i) => { if (h == null) return; const k = dayKey(tAt(i)); if (!by.has(k)) by.set(k, []); by.get(k).push(h); });
+    return [...by.entries()].filter(([, hs]) => hs.length >= 20).map(([k, hs]) => ({ k, range: Math.max(...hs) - Math.min(...hs),
+      age: moonAge(k * DAY - TZ + 12 * HR), noon: k * DAY - TZ + 12 * HR, ev: EXT.filter(e => dayKey(e.t) === k) }));
+  }
+  function lineChart(el, readEl, series, opt) {
+    // series: [{t, v}] hourly; one y-scale; scrolls horizontally, 6 px per hour
+    const PX = 6, W = Math.max(series.length * PX, 300), Hh = opt.h, top = 22, bot = 18, left = 4;
+    const vs = series.map(s => s.v).filter(v => v != null), y0 = opt.min ?? Math.min(...vs), y1 = opt.max ?? Math.max(...vs);
+    const y = v => top + (1 - (v - y0) / (y1 - y0)) * (Hh - top - bot), x = i => left + i * PX;
+    let g = "";
+    // night shading 18:00-06:00 and day separators
+    series.forEach((s, i) => { const hh = loc(s.t).getUTCHours();
+      if (hh >= 18 || hh < 6) g += `<rect x="${x(i)}" y="${top}" width="${PX}" height="${Hh - top - bot}" fill="var(--night)"/>`;
+      if (hh === 0) g += `<line x1="${x(i)}" x2="${x(i)}" y1="4" y2="${Hh - bot}" stroke="var(--line)"/><text x="${x(i) + 4}" y="14" font-size="12" font-weight="600" fill="var(--ink)">${dayName(dayKey(s.t))}</text>`;
+      if (hh === 12) g += `<text x="${x(i)}" y="${Hh - 4}" font-size="10" fill="var(--ink-2)" text-anchor="middle">12:00</text>`;
+    });
+    opt.grid.forEach(v => { g += `<line x1="0" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="2 4"/>`;
+      for (let i = 0; i < series.length; i += 24) g += `<text x="${x(i) + 3}" y="${y(v) - 3}" font-size="10" fill="var(--ink-2)">${opt.fmt(v)}</text>`; });
+    const pts = series.map((s, i) => s.v == null ? null : `${x(i).toFixed(1)},${y(s.v).toFixed(1)}`).filter(Boolean);
+    g += `<polygon points="${x(0)},${Hh - bot} ${pts.join(" ")} ${x(series.length - 1)},${Hh - bot}" fill="var(--accent)" opacity=".12"/>`;
+    g += `<polyline points="${pts.join(" ")}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>`;
+    (opt.marks || []).forEach(m => { const fi = (m.t - series[0].t) / HR; if (fi < 0 || fi > series.length - 1) return;
+      g += `<circle cx="${x(fi)}" cy="${y(m.v)}" r="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="${x(fi)}" y="${y(m.v) + (m.hi ? -8 : 15)}" font-size="10" font-weight="600" text-anchor="middle" fill="var(--ink)">${hm(m.t)}</text>`; });
+    const ni = (Date.now() - series[0].t) / HR;
+    if (ni >= 0 && ni <= series.length - 1) g += `<line x1="${x(ni)}" x2="${x(ni)}" y1="${top - 4}" y2="${Hh - bot}" stroke="var(--limit)" stroke-width="1.5"/>
+      <text x="${x(ni) + 3}" y="${Hh - bot - 4}" font-size="10" font-weight="600" fill="var(--limit)">ตอนนี้</text>`;
+    g += `<line class="cross" x1="0" x2="0" y1="${top}" y2="${Hh - bot}" stroke="var(--ink)" stroke-width="1" visibility="hidden"/>
+      <circle class="crossdot" r="4.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" visibility="hidden"/>`;
+    el.innerHTML = `<svg width="${W + left * 2}" height="${Hh}" role="img" aria-label="${opt.label}">${g}</svg>`;
+    const svg = el.querySelector("svg"), cross = svg.querySelector(".cross"), dot = svg.querySelector(".crossdot");
+    const pick = e => { const r = svg.getBoundingClientRect(), i = Math.round((e.clientX - r.left - left) / PX);
+      const s = series[Math.max(0, Math.min(series.length - 1, i))]; if (!s || s.v == null) return;
+      const xi = x(series.indexOf(s)); cross.setAttribute("x1", xi); cross.setAttribute("x2", xi); cross.setAttribute("visibility", "visible");
+      dot.setAttribute("cx", xi); dot.setAttribute("cy", y(s.v)); dot.setAttribute("visibility", "visible");
+      readEl.innerHTML = opt.read(s); };
+    svg.addEventListener("pointerdown", pick); svg.addEventListener("pointermove", e => { if (e.buttons || e.pointerType !== "mouse") pick(e); else pick(e); });
+    if (ni >= 0) el.scrollLeft = Math.max(0, x(ni) - 60);
+  }
+  let tideDone = false;
+  function renderTide() {
+    if (tideDone) return; tideDone = true;
+    const now = Date.now(), age = moonAge(now), days = daysInfo(), today = days.find(d => d.k === dayKey(now)) || days[0];
+    const next = EXT.find(e => e.t > now), mins = next ? Math.round((next.t - now) / 60000) : 0;
+    const [rl, rc] = rangeLabel(today.range);
+    $("tToday").innerHTML = `${moonSVG(age, "moon")}
+      <div><span class="lunar">${lunar(now)}</span></div>
+      <div><span class="pill ${rc}">${rl}</span> <span class="small">วันนี้ขึ้นลง ${today.range.toFixed(1)} ม.</span></div>
+      <div class="next">${next ? `ต่อไป: <b>${next.hi ? "น้ำขึ้นสูงสุด" : "น้ำลงต่ำสุด"} ${hm(next.t)} น.</b> (${next.h.toFixed(2)} ม.) · อีก ${Math.floor(mins / 60)} ชม. ${mins % 60} นาที` : "ไม่มีข้อมูลล่วงหน้า"}</div>`;
+    const ser = T.lv.map((v, i) => ({ t: tAt(i), v }));
+    lineChart($("tScroll"), $("tRead"), ser, { h: 190, grid: [0, 1], fmt: v => v + " ม.", label: "กราฟระดับน้ำรายชั่วโมง 10 วัน",
+      marks: EXT.map(e => ({ t: e.t, v: e.h, hi: e.hi })),
+      read: s => `${dayName(dayKey(s.t))} ${hm(s.t)} น. · ระดับ <b>${s.v.toFixed(2)} ม.</b> <small>${(() => { const i = ser.indexOf(s), n = ser[i + 1]; return n && n.v != null ? (n.v > s.v ? "น้ำกำลังขึ้น" : "น้ำกำลังลง") : ""; })()}</small>` });
+    const cs = C2.times.map((tt, h) => { const c = curAt(h, T.at[0], T.at[1]); return { t: new Date(tt).getTime(), v: c ? Math.hypot(...c) * KN : null, c }; });
+    lineChart($("cScroll"), $("cRead"), cs, { h: 150, min: 0, max: Math.max(2, ...cs.map(s => s.v || 0)), grid: [0.5, 1, 1.5], fmt: v => v + " นอต", label: "กราฟความแรงกระแสน้ำ 48 ชั่วโมง",
+      read: s => `${dayName(dayKey(s.t))} ${hm(s.t)} น. · <b>${s.v.toFixed(1)} นอต</b> <small>ไหลไป${flowDir(s.c)}</small>` });
+    $("tDays").innerHTML = days.map(d => { const [l, c] = rangeLabel(d.range);
+      return `<div class="day ${d.k === dayKey(now) ? "today-row" : ""}">${moonSVG(d.age)}
+        <div class="dh"><b>${dayName(d.k)}</b><span>${lunar(d.noon)}</span><span class="pill ${c}">${l} ${d.range.toFixed(1)} ม.</span></div>
+        <div class="ev">${d.ev.map(e => `<span class="${e.hi ? "hi" : "lo"}">${e.hi ? "▲" : "▼"} ${hm(e.t)} <small>${e.h.toFixed(2)}</small></span>`).join("")}</div></div>`; }).join("");
+    $("tNote").innerHTML = `ระดับน้ำจากโมเดล Copernicus ที่กลางโซนวางอวน (${T.at[0]}°N ${T.at[1]}°E) วัดเทียบระดับทะเลปานกลาง ตัวเลขความสูงจึงไม่ตรงกับตารางน้ำของกรมอุทกศาสตร์ ให้ดู<b>เวลา</b>และ<b>ขนาดการขึ้นลง</b>เป็นหลัก · ข้างขึ้นข้างแรมนับจากวันเดือนดับและเดือนเพ็ญจริง อาจต่างจากปฏิทินจันทรคติไทยได้ 1 วันในบางเดือน · น้ำเกิด = ขึ้นลง 1.8 ม. ขึ้นไป, น้ำตาย = 1.3 ม. ลงมา (เกณฑ์ทดลอง)`;
+  }
+
+  /* modes */
+  function setMode(m) {
+    closeSheet();
+    document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.mode === m));
+    $("tidepage").hidden = m !== "tide";
+    if (m === "tide") { renderTide(); return; }
+    mode = m;
+    $("chips").hidden = m !== "data"; $("cards").hidden = m !== "rec";
+    $("fabLayers").style.top = m === "data" ? "62px" : "10px"; $("fabHome").style.top = m === "data" ? "114px" : "62px";
+    m === "rec" ? fishLayer.addTo(map) : map.removeLayer(fishLayer);
+    drawOverlay(); if (depthLines) syncLines();
+  }
+  document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+  document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    layer = b.dataset.layer; document.querySelectorAll(".chip").forEach(o => o.setAttribute("aria-pressed", o === b)); closeSheet(); drawOverlay(); }));
+
+  $("stamp").textContent = `ข้อมูล ${thDate(D.sob.time)}`;
+  if (D.built) { const age = (Date.now() - new Date(D.built)) / 86400e3;
+    if (age > 2) { $("stamp").textContent = `⚠ ข้อมูลเก่า ${Math.floor(age)} วัน`; $("stamp").classList.add("stale"); } }
+  drawStatic(); setMode(["rec", "data", "tide"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "rec");
+  const redrawAll = () => { drawStatic(); drawOverlay(); };
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  mq.addEventListener && mq.addEventListener("change", redrawAll);
+  new MutationObserver(redrawAll).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>
+
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");</script>
+</body>
+</html>
